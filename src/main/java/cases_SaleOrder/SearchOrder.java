@@ -1,4 +1,4 @@
-package functions_SaleOrder;
+package cases_SaleOrder;
 
 import org.testng.annotations.Test;
 
