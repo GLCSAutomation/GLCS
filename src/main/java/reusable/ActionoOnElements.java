@@ -163,6 +163,7 @@ public class ActionoOnElements extends ExcelData{
 		Thread.sleep(sec*1000);
 	}
 	
+	/* This function is upload a file from a particular window location */
 	protected void uploadFile (String xpath) throws Exception
 	{
 		input = readExcelInput(xpath);
@@ -171,19 +172,14 @@ public class ActionoOnElements extends ExcelData{
 		Robot robot = new Robot();
 		StringSelection filepath = new StringSelection(input);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
-		
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		waitForSecond(1);
-		
 		robot.keyPress(KeyEvent.VK_V);
 		waitForSecond(1);
-		
 		robot.keyRelease(KeyEvent.VK_V);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
-		
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		waitForSecond(2);
 	}
 	
 
