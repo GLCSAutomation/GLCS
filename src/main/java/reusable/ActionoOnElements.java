@@ -126,17 +126,9 @@ public class ActionoOnElements extends ExcelData{
 
 	protected void waitUntilElementFound(String xpath) throws Exception
 	{
-		if (xpath.equalsIgnoreCase("SelectOrderCheckBoxToGenearetePicklist"))
-		{
-			xpath = readPropertiesFile("SelectOrderBy") + readExcelInput("SystemOrderNo") + readPropertiesFile("CheckBox");
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		}
-		else 
-		{
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		}
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+
 	}
 
 	protected WebElement getElement(String xpath) throws Exception
@@ -160,7 +152,7 @@ public class ActionoOnElements extends ExcelData{
 	{
 		Thread.sleep(sec*1000);
 	}
-	
+
 	/* This function is upload a file from a particular window location */
 	protected void uploadFile (String xpath) throws Exception
 	{
@@ -179,7 +171,7 @@ public class ActionoOnElements extends ExcelData{
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 	}
-	
+
 
 	/* This function is select a particular date from  calendar */
 	protected void select_Date(String xpath) throws Exception {
@@ -191,8 +183,8 @@ public class ActionoOnElements extends ExcelData{
 		currentDay = getMonthName(Integer.parseInt(currentDay));
 		String currentMonth = currentDate[1];
 		String currentYear = currentDate[2];
-		
-		/* removing 0 from 01 to make it as 1 */
+
+		/* removing 0 from 01 to make it as 1 excluding date as 10, 20 or 30 */
 		if ((!currentDay.equalsIgnoreCase("10")) || (!currentDay.equalsIgnoreCase("20"))
 				|| (!currentDay.equalsIgnoreCase("30"))) 
 		{
