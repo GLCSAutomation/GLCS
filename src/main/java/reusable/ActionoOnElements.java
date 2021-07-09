@@ -16,7 +16,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,7 +28,6 @@ public class ActionoOnElements extends ExcelData{
 	protected int ele_count;
 	String input;
 	JavascriptExecutor js;
-	Actions action;
 	protected String propertyFileName;
 
 	protected String readPropertiesFile(String propText) {
@@ -157,7 +155,7 @@ public class ActionoOnElements extends ExcelData{
 		return ele;
 	}
 
-	/* Explicit wait function to wait for a particular number of seconds */
+	/* Function to wait for a particular number of seconds */
 	protected void waitForSecond (int sec) throws InterruptedException
 	{
 		Thread.sleep(sec*1000);
@@ -168,7 +166,7 @@ public class ActionoOnElements extends ExcelData{
 	{
 		input = readExcelInput(xpath);
 		click_on_Element(xpath);
-		waitForSecond(2); 
+		waitForSecond(1); 
 		Robot robot = new Robot();
 		StringSelection filepath = new StringSelection(input);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
