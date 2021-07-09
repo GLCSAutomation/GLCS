@@ -1,5 +1,9 @@
 package reusable;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.DateFormatSymbols;
@@ -27,7 +31,6 @@ public class ActionoOnElements extends ExcelData{
 	JavascriptExecutor js;
 	Actions action;
 	protected String propertyFileName;
-
 
 	protected String readPropertiesFile(String propText) {
 		prop = new Properties();
@@ -159,6 +162,30 @@ public class ActionoOnElements extends ExcelData{
 	{
 		Thread.sleep(sec*1000);
 	}
+	
+	protected void uploadFile (String xpath) throws Exception
+	{
+		input = readExcelInput(xpath);
+		click_on_Element(xpath);
+		waitForSecond(2); 
+		Robot robot = new Robot();
+		StringSelection filepath = new StringSelection(input);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
+		
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		waitForSecond(1);
+		
+		robot.keyPress(KeyEvent.VK_V);
+		waitForSecond(1);
+		
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		waitForSecond(2);
+	}
+	
 
 	/* This function is select a particular date from  calendar */
 	protected void select_Date(String xpath) throws Exception {

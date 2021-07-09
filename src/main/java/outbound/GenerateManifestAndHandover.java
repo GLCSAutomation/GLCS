@@ -31,7 +31,7 @@ public class GenerateManifestAndHandover extends BaseLogin{
 		//generate_manifest();
 		click_on_Element("Handover");
 		//generate_gatepass();
-		//click_on_Element("FileUpload");
+		uploadFile("FileUpload");
 		//click_on_Element("HandoverDone");
 	}
 	
@@ -48,6 +48,7 @@ public class GenerateManifestAndHandover extends BaseLogin{
 		input("BagNo");
 		click_on_Element("SubmitManifestDetails");	
 	}
+	
 	void generate_manifest() throws Exception
 	{
 		click_on_Element("InputManifestDetails");
@@ -56,6 +57,7 @@ public class GenerateManifestAndHandover extends BaseLogin{
 		click_on_Element("GenerateManifest");
 		
 	}
+	
 	void generate_gatepass() throws Exception
 	{
 	click_on_Element("Gatepass");
