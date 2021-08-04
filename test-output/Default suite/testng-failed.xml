@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="outbound.GeneratePicklist">
+      <class name="cases_SaleOrder.SearchOrder">
         <methods>
           <include name="close"/>
+          <include name="search_SaleOrder"/>
           <include name="launch"/>
-          <include name="generatePicklist"/>
         </methods>
-      </class> <!-- outbound.GeneratePicklist -->
+      </class> <!-- cases_SaleOrder.SearchOrder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

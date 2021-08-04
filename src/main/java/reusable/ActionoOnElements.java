@@ -128,7 +128,6 @@ public class ActionoOnElements extends ExcelData{
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-
 	}
 
 	protected WebElement getElement(String xpath) throws Exception

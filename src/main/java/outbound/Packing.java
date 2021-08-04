@@ -30,6 +30,7 @@ public class Packing extends BaseLogin {
 		click_on_Element("StartPackingTask");
 		click_on_Element("SkipBoxSelectionButton");
 		addPackingSKUs();
+		addBoxDetails();
 	}
 
 	void addPackingSKUs() throws Exception
@@ -72,5 +73,22 @@ public class Packing extends BaseLogin {
 				}
 			}
 		}
+	}
+	
+	void addBoxDetails() throws Exception
+	{
+		if (readExcelInput("BoxType")!= null)
+		{
+			click_on_Element("MarkBoxAsFilled");
+			select_From_Dropdown("BoxType");
+			input("BoxWeight");
+			click_on_Element("SubmitBoxDetails");	
+		}
+		click_on_Element("MarkBoxAsFilled");
+		input("BoxLength");
+		input("BoxWidth");
+		input("BoxHeight");
+		input("BoxWeight");
+		click_on_Element("SubmitBoxDetails");
 	}
 }
